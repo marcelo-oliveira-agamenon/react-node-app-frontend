@@ -1,33 +1,29 @@
 import React from "react";
 import Userform from "../../components/Login/userform";
-import Header from "../../components/Header/header";
+import {
+  MainScreen,
+  LoginComponent,
+  FormComponent,
+  ImageComponent,
+} from "./styles";
+import Image from "../../assets/image2.png";
 
-export class Login extends React.Component {
-  render() {
-    return (
-      <>
-        <Header
-          mainText="My Site"
-          mainTextStyle={{
-            margin: 0,
-            fontSize: "2.5vw",
-            fontFamily: "Roboto, sans-serif",
-            letterSpacing: "2px",
-            fontWeight: "lighter",
-            color: "#fff"
-          }}
-          headerStyle={{
-            width: "100%",
-            height: "10vh",
-            backgroundColor: "#4B4B4B"
-          }}
-        />
-        <div style={{ marginLeft: "35vw", marginTop: "20vh" }}>
-          <Userform />
-        </div>
-      </>
-    );
-  }
+function Login() {
+  return (
+    <>
+      <MainScreen>
+        <LoginComponent>
+          <FormComponent>
+            <h1>bem vindo!</h1>
+            <Userform />
+            <ImageComponent>
+              <img src={Image} alt="" />
+            </ImageComponent>
+          </FormComponent>
+        </LoginComponent>
+      </MainScreen>
+    </>
+  );
 }
 
 export default Login;

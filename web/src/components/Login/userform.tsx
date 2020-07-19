@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../ducks/auth";
 import { useHistory } from "react-router-dom";
+import { MainDiv, Form } from "./styles";
 
 const mapStateToProps = (state: {
   apiToken: {
@@ -32,8 +33,8 @@ export interface props {
 }
 
 function Userform(props: props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const history = useHistory();
 
   const handleSubmit = (event: any) => {
@@ -50,103 +51,28 @@ function Userform(props: props) {
   };
 
   return (
-    <div
-      style={{
-        border: "1.2px solid #707070",
-        width: "18vw",
-        height: "",
-        padding: "2.2rem 2.5rem",
-        borderRadius: "30px",
-      }}
+    <Form
+      onSubmit={handleSubmit}
+      style={{ display: "flex", flexDirection: "column" }}
     >
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
-        <label
-          style={{
-            marginBottom: "2vh",
-            fontFamily: "Roboto, sans-serif",
-            fontSize: "1.3vw",
-          }}
-        >
-          Username
-        </label>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          style={{
-            padding: "0.3rem",
-            borderRadius: "3px",
-            outline: "none",
-            borderColor: "#707070",
-            borderWidth: "1.15px",
-          }}
-          placeholder="Insert your username"
-        />
-        <label
-          style={{
-            marginBottom: "2vh",
-            fontFamily: "Open Sans, sans-serif",
-            fontSize: "1.3vw",
-            marginTop: "2vh",
-          }}
-        >
-          Password
-        </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          style={{
-            padding: "0.3rem",
-            borderRadius: "5px",
-            outline: "none",
-            borderWidth: "1.15px",
-            borderColor: "#707070",
-          }}
-          placeholder="Insert your password"
-        />
-        <button
-          type="submit"
-          style={{
-            marginLeft: "4vw",
-            marginTop: "3vh",
-            textTransform: "capitalize",
-            fontFamily: "Roboto, sans-serif",
-            fontSize: "1.2vw",
-            width: "10vw",
-            backgroundColor: "#28CC21",
-            borderRadius: "19px",
-            borderStyle: "none",
-            height: "4.5vh",
-            color: "#fff",
-            letterSpacing: "2px",
-            fontWeight: "lighter",
-            outline: "none",
-            cursor: "pointer",
-          }}
-        >
-          Login
-        </button>
-      </form>
-      {console.log("a", props)}
-      {props.apiToken.token === "" ? (
-        <h3
-          style={{
-            textTransform: "capitalize",
-            fontFamily: "Roboto, sans-serif",
-            color: "#EA292D",
-            fontSize: "1vw",
-            margin: 0,
-            padding: 0,
-          }}
-        >
-          {props.error?.data.error}
-        </h3>
-      ) : null}
-    </div>
+      <label>usuário</label>
+      <input
+        type="text"
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
+      />
+      <label>senha</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(event) => setPassword(event.target.value)}
+      />
+      <button type="submit" className="submit">
+        Login
+      </button>
+      <button className="signin">cadastrar</button>
+      <h4>esqueceu a senha?</h4>
+    </Form>
   );
 }
 
