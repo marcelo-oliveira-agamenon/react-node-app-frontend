@@ -15,20 +15,22 @@ export const LoginComponent = styled.div`
   height: 600px;
   background-color: #fff;
   margin-top: 55px;
+  box-shadow: 0px 6px 8px 2px rgb(0, 0, 0, 0.25),
+    6px 0px 8px 2px rgb(0, 0, 0, 0.25);
 `;
 
 export const FormComponent = styled.div`
-  h1 {
-    font-size: 35px;
-    text-transform: uppercase;
-    font-family: "Sansita", sans-serif;
-    font-weight: 300;
-    letter-spacing: 8px;
-  }
+  display: flex;
+  flex-direction: row;
 `;
 
 export const ImageComponent = styled.div`
-  display: inline-flex;
+  display: flex;
+  height: 600px;
+  width: 650px;
   img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
   }
 `;

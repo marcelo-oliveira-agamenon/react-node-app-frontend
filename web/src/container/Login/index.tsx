@@ -1,5 +1,5 @@
 import React from "react";
-import Userform from "../../components/Login/userform";
+import Userform from "../../components/Login";
 import {
   MainScreen,
   LoginComponent,
@@ -14,10 +14,9 @@ function Login() {
       <MainScreen>
         <LoginComponent>
           <FormComponent>
-            <h1>bem vindo!</h1>
             <Userform />
             <ImageComponent>
-              <img src={Image} alt="" />
+              <img src={Image} alt="Liberty statue" />
             </ImageComponent>
           </FormComponent>
         </LoginComponent>

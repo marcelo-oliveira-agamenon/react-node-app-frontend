@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../../ducks/auth";
 import { useHistory } from "react-router-dom";
-import { MainDiv, Form } from "./styles";
+import { Form, MainDiv } from "./styles";
 
 const mapStateToProps = (state: {
   apiToken: {
@@ -51,28 +51,32 @@ function Userform(props: props) {
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      style={{ display: "flex", flexDirection: "column" }}
-    >
-      <label>usuário</label>
-      <input
-        type="text"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <label>senha</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <button type="submit" className="submit">
-        Login
-      </button>
-      <button className="signin">cadastrar</button>
-      <h4>esqueceu a senha?</h4>
-    </Form>
+    <MainDiv>
+      <Form onSubmit={handleSubmit}>
+        <h1>bem vindo!</h1>
+        <label>usuário</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <label>senha</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <button type="submit" className="submit">
+          entrar
+        </button>
+        <button className="signin" onClick={() => history.push("/signIn")}>
+          cadastrar
+        </button>
+        <h4 onClick={() => history.push("/forgotPassword")}>
+          esqueceu a senha?
+        </h4>
+      </Form>
+    </MainDiv>
   );
 }
 
