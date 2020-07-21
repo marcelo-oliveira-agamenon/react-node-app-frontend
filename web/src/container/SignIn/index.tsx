@@ -1,11 +1,15 @@
 import React from "react";
-import { MainScreen, SignInComponent } from "./styles";
+import { MainScreen, SignInComponent, ImageComponent } from "./styles";
+import SignInForm from "../../components/SignIn/index";
 
 function SignIn() {
   return (
     <>
       <MainScreen>
-        <SignInComponent></SignInComponent>
+        <SignInComponent>
+          <SignInForm />
+        </SignInComponent>
+        <ImageComponent></ImageComponent>
       </MainScreen>
     </>
   );

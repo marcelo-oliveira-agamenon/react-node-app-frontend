@@ -28,7 +28,7 @@ export const Form = styled.form`
     letter-spacing: 2px;
     font-size: 15px;
     margin-bottom: 7px;
-    margin-left: 5px;
+    margin-left: 25px;
   }
 
   .submit {
@@ -67,6 +67,8 @@ export const Form = styled.form`
 
   input {
     border: 1.2px solid #2f0833;
+    font-family: "Sansita", sans-serif;
+    font-size: 18px;
     border-radius: 28px;
     padding: 15px 6px;
     outline: none;
