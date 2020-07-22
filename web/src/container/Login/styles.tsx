@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const MainScreen = styled.div`
-  height: 100vh;
-  width: 100%;
-  background-color: #a7d6d4;
   display: flex;
   justify-content: center;
 `;
@@ -11,7 +8,8 @@ export const MainScreen = styled.div`
 export const LoginComponent = styled.div`
   border: 2px solid #000;
   border-radius: 4px;
-  width: 1100px;
+  width: 100%;
+  max-width: 1100px;
   height: 600px;
   background-color: #fff;
   margin-top: 55px;

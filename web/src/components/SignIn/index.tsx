@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainForm, FileDiv } from "./styles";
 import { useHistory } from "react-router-dom";
+import Avatar from "../../assets/avatar.png";
 
 function SignInForm() {
   const history = useHistory();
+  const [urlImage, setImageURL] = useState("");
+
+  const handleFileImage = (event: any) => {
+    let image = URL.createObjectURL(event.target.files[0]);
+    setImageURL(image);
+  };
 
   return (
     <>
       <MainForm>
         <FileDiv>
-          <input type="file" className="inputFile" />
-          <button className="addImage">adicionar foto</button>
+          <img src={urlImage === "" ? Avatar : urlImage} alt="avatar" />
+          <input
+            id="inputFile"
+            type="file"
+            accept="image/jpg/png/jpeg"
+            onChange={(event) => handleFileImage(event)}
+          />
+          <button
+            type="button"
+            onClick={() => document.getElementById("inputFile")?.click()}
+          >
+            adicionar foto
+          </button>
         </FileDiv>
         <label>Nome do Usuário</label>
         <input type="text" />
