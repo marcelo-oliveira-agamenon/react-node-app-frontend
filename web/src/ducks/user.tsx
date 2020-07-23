@@ -8,7 +8,6 @@ export type User = {
   username: string;
   password: string;
   info: {
-    name: string;
     phone: string;
     age: number;
     email: string;
@@ -70,7 +69,12 @@ export function fetchUser(userID: string) {
 }
 
 //add new user in the database from the API
-export function addUser(username: string, password: string) {
+export function addUser(
+  username: string,
+  password: string,
+  info: object,
+  roles: string
+) {
   const state: any = store.getState();
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
@@ -80,6 +84,8 @@ export function addUser(username: string, password: string) {
         {
           username: username,
           password: password,
+          info: info,
+          roles: roles,
         },
         {
           headers: {
@@ -88,7 +94,7 @@ export function addUser(username: string, password: string) {
         }
       )
       .then((response) => {
-        console.log(response);
+        return Promise.resolve(response.data.response);
       })
       .catch((error) => {
         dispatch({

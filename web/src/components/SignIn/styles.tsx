@@ -14,6 +14,11 @@ export const MainForm = styled.form`
     padding: 4px 22px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:focus {
+      border: 1.5px solid blue;
+      box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.8);
+    }
   }
 
   label {
@@ -33,6 +38,11 @@ export const MainForm = styled.form`
     padding: 4px 22px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:focus {
+      border: 1.5px solid blue;
+      box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.8);
+    }
   }
 
   .submit {
@@ -51,6 +61,11 @@ export const MainForm = styled.form`
     font-size: 17px;
     letter-spacing: 1.5px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: rgb(47, 8, 51, 0.75);
+      box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
+    }
   }
 
   .return {
@@ -68,6 +83,12 @@ export const MainForm = styled.form`
     font-size: 17px;
     letter-spacing: 1.5px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: rgb(44, 143, 141, 1);
+      color: #fff;
+      box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
+    }
   }
 `;
 
@@ -91,6 +112,12 @@ export const FileDiv = styled.div`
     letter-spacing: 1.5px;
     cursor: pointer;
     border-style: none;
+    outline: none;
+
+    &:hover {
+      background-color: rgb(47, 8, 51, 0.9);
+      box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+    }
   }
 
   input {

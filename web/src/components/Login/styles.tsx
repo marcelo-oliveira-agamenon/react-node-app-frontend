@@ -46,6 +46,11 @@ export const Form = styled.form`
     font-size: 17px;
     letter-spacing: 1.5px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: rgb(47, 8, 51, 0.75);
+      box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
+    }
   }
 
   .signin {
@@ -63,6 +68,12 @@ export const Form = styled.form`
     font-size: 17px;
     letter-spacing: 1.5px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.25);
+
+    &:hover {
+      background-color: rgb(44, 143, 141, 1);
+      color: #fff;
+      box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4);
+    }
   }
 
   input {
@@ -75,6 +86,11 @@ export const Form = styled.form`
     margin-bottom: 8px;
     width: 250px;
     box-shadow: 5px 5px 6px rgb(0, 0, 0, 0.25);
+
+    &:focus {
+      border: 1.2px solid blue;
+      box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
+    }
   }
 
   h4 {
@@ -85,5 +101,9 @@ export const Form = styled.form`
     cursor: pointer;
     margin-top: 32px;
     margin-left: 60px;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
 `;
