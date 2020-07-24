@@ -13,6 +13,8 @@ export type User = {
     email: string;
     avatar: string;
   };
+  createdAt: Date;
+  modifiedAt: Date;
 };
 
 //functions
@@ -22,7 +24,7 @@ export function fetchUserList() {
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
-      .get(`${envs.API_URL}/users`, {
+      .get(`${envs.API_URL}/api/users`, {
         headers: {
           Authorization: apiToken,
         },
@@ -48,7 +50,7 @@ export function fetchUser(userID: string) {
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
-      .get(`${envs.API_URL}/users/${userID}`, {
+      .get(`${envs.API_URL}/api/users/${userID}`, {
         headers: {
           Authorization: apiToken,
         },
@@ -80,7 +82,7 @@ export function addUser(
   return function (dispatch: any) {
     return axios
       .post(
-        `${envs.API_URL}/users/add`,
+        `${envs.API_URL}/api/users/add`,
         {
           username: username,
           password: password,
@@ -111,7 +113,7 @@ export function deleteUser(idUser: string) {
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
-      .delete(`${envs.API_URL}/users/delete/${idUser}`, {
+      .delete(`${envs.API_URL}/api/users/delete/${idUser}`, {
         data: {
           userID: idUser,
         },
@@ -138,7 +140,7 @@ export function updateUser(idUser: string, username: string, password: string) {
   return function (dispatch: any) {
     return axios
       .put(
-        `${envs.API_URL}/users/update/${idUser}`,
+        `${envs.API_URL}/api/users/update/${idUser}`,
         {
           username: username,
           password: password,

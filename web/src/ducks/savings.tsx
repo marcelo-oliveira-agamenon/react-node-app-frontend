@@ -12,7 +12,7 @@ export function fetchSavings() {
   const apiToken: any = state.apiToken.token;
   return function (dispatch: any) {
     return axios
-      .get(`${envs.API_URL}/dashboard`, {
+      .get(`${envs.API_URL}/api/dashboard`, {
         headers: {
           Authorization: apiToken,
         },

@@ -15,7 +15,7 @@ export interface props {
     password: string,
     info: object,
     roles: string
-  ) => Promise<void>;
+  ) => Promise<string>;
 }
 
 function SignInForm(props: props) {
@@ -53,7 +53,17 @@ function SignInForm(props: props) {
       avatar: urlImage,
     };
     props.addUser(name, password, info, roles).then((response) => {
-      console.log(response);
+      if (response === "New user add!") {
+        history.push("/");
+      } else {
+        setAge("");
+        setEmail("");
+        setImageURL("");
+        setName("");
+        setPassword("");
+        setPhone("");
+        setRoles("");
+      }
     });
   };
 

@@ -19,7 +19,7 @@ export function fetchExpenses(userID: string) {
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
-      .get(`${envs.API_URL}/expenses/${userID}`, {
+      .get(`${envs.API_URL}/api/expenses/${userID}`, {
         headers: {
           Authorization: apiToken,
         },
@@ -54,7 +54,7 @@ export function addExpense(
   return function (dispatch: any) {
     return axios
       .post(
-        `${envs.API_URL}/expenses/add`,
+        `${envs.API_URL}/api/expenses/add`,
         {
           userID,
           formData,
@@ -83,7 +83,7 @@ export function deleteExpense(expenseID: string) {
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
-      .delete(`${envs.API_URL}/expenses/delete/${expenseID}`, {
+      .delete(`${envs.API_URL}/api/expenses/delete/${expenseID}`, {
         data: {
           expenseID: expenseID,
         },
@@ -118,7 +118,7 @@ export function updateExpense(
   return function (dispatch: any) {
     return axios
       .put(
-        `${envs.API_URL}/expenses/update/${expenseID}`,
+        `${envs.API_URL}/api/expenses/update/${expenseID}`,
         {
           expenseID: expenseID,
           formdata: formData,
