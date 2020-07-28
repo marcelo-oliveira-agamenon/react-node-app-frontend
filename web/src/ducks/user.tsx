@@ -12,6 +12,8 @@ export type User = {
     age: number;
     email: string;
     avatar: string;
+    imageName: string;
+    originalName: string;
   };
   createdAt: Date;
   modifiedAt: Date;
@@ -134,16 +136,55 @@ export function deleteUser(idUser: string) {
 }
 
 //update a user in the database from the API
-export function updateUser(idUser: string, username: string, password: string) {
+export function updateUserCommon(
+  idUser: string,
+  username: string,
+  password: string,
+  roles: string
+) {
   const state: any = store.getState();
   const apiToken: any = "Bearer " + state.apiToken;
   return function (dispatch: any) {
     return axios
       .put(
-        `${envs.API_URL}/api/users/update/${idUser}`,
+        `${envs.API_URL}/api/users/update/common/${idUser}`,
         {
           username: username,
           password: password,
+          roles: roles,
+        },
+        {
+          headers: {
+            Authorization: apiToken,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        dispatch({
+          type: types.ERROR,
+          payload: error,
+        });
+      });
+  };
+}
+
+export function updateUserInfo(
+  idUser: string,
+  avatarFile: string,
+  info: object
+) {
+  const state: any = store.getState();
+  const apiToken: any = "Bearer " + state.apiToken;
+  return function (dispatch: any) {
+    return axios
+      .put(
+        `${envs.API_URL}/api/users/update/info/${idUser}`,
+        {
+          avatarFile: avatarFile,
+          info: info,
         },
         {
           headers: {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { login } from "../../ducks/auth";
 import { useHistory } from "react-router-dom";
 import { Form, MainDiv } from "./styles";
+import ReactLoading from "react-loading";
 
 const mapStateToProps = (state: {
   apiToken: {
@@ -35,11 +36,14 @@ export interface props {
 function Userform(props: props) {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     event.preventDefault();
     props.login(username, password).then((response) => {
+      setLoading(false);
       if (response !== undefined) {
         history.push("/dashboard");
       } else {
@@ -58,13 +62,17 @@ function Userform(props: props) {
         <input
           type="text"
           value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setUsername(event.target.value)
+          }
         />
         <label>senha</label>
         <input
           type="password"
           value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setPassword(event.target.value)
+          }
         />
         <button type="submit" className="submit">
           entrar
@@ -72,6 +80,9 @@ function Userform(props: props) {
         <button className="signin" onClick={() => history.push("/signIn")}>
           cadastrar
         </button>
+        {loading ? (
+          <ReactLoading type="spin" color="#2F0833" height={40} width={40} />
+        ) : null}
         <h4 onClick={() => history.push("/forgotPassword")}>
           esqueceu a senha?
         </h4>

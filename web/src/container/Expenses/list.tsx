@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "../../components/Header/header";
+import Header from "../../components/Header";
 import ExpenseListComp from "../../components/Expenses/expenseList";
 import { connect } from "react-redux";
 import { fetchExpenses, Expense } from "../../ducks/expense";
@@ -35,22 +35,6 @@ function ListExpenses(props: props) {
   const arrayExpense: Array<Expense> = props.expenseList;
   return (
     <>
-      <Header
-        mainText="Despesas"
-        mainTextStyle={{
-          margin: 0,
-          fontSize: "2.5vw",
-          fontFamily: "Roboto, sans-serif",
-          letterSpacing: "2px",
-          fontWeight: "lighter",
-          color: "#fff",
-        }}
-        headerStyle={{
-          width: "100%",
-          height: "10vh",
-          backgroundColor: "#4B4B4B",
-        }}
-      />
       <div>
         <h3>Updated list of expenses</h3>
         <div style={{ display: "inline-block" }}>
